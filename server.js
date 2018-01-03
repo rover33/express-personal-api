@@ -52,6 +52,15 @@ app.get('/api', function api_index(req, res) {
   })
 });
 
+app.get('/api/profile', function(req,res){
+  res.json({
+    name: "Remy Pearlstone",
+    github_link: "https://github.com/rover33/",
+    github_profile_image: "https://avatars3.githubusercontent.com/u/17019181?s=400&v=4",
+    current_city: 'Denver', 
+    pets:[{name: "jin", species: "humanoid"}, {name: "kevin james", species: "Wanabe"}]
+}
+
 /**********
  * SERVER *
  **********/
