@@ -17,7 +17,7 @@ var new_music =[
 
 db.music.remove({}, function(err, music){
     if (err) {
-        return console.log('Error:', err);
+        return console.log('Error:', err)
     } else {
         return console.log("success", music)
     }
