@@ -73,13 +73,43 @@ app.get('/api/music', function(req,res){
 
 })
 
-app.post('/api/music/:id', function(req,res){
+app.get('/api/music/:id', function(req,res){
   db.music.findById(req.params.id, function(err, music){
     if (err) {return console.log("You are fucked:", + err)}
     res.json(music);
   })
 })
 
+app.post('/api/music', function(req,res){
+  var newMusic = new db.music({
+    name: req.body.name,
+    songName: req.body.songName,
+  })
+
+  newMusic.save(function(err, music){
+    if (err) {
+      return console.log("create error: " + err);
+    }
+    console.log("created ", music.name);
+    res.json(music);
+  });
+});
+
+app.put('/api/music/:id', function(req, res){
+  db.music.findOneAndUpdate({_id: req.params.id }, {$set: {name: req.body.name, songName: req.body.songName}}, {new: true}, function(err, music){
+    if (err) {return console.log("You failed:", + err)}
+    res.json(music);
+  })
+})
+
+app.delete('/api/music/:id', function (req, res) {
+  console.log(req.params)
+  var musicId = req.params.id;
+
+  db.music.findOneAndRemove({ _id: musicId }, function (err, deletedMusic) {
+    res.json(deletedMusic);
+  });
+});
 
 /**********
  * SERVER *
