@@ -31,6 +31,7 @@ app.get('/', function homepage(req, res) {
 });
 
 
+
 /*
  * JSON API Endpoints
  */
@@ -46,8 +47,8 @@ app.get('/api', function api_index(req, res) {
     base_url: "https://tranquil-brushlands-55213.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "Data about REMY PEARLSTONE"},
+      {method: "POST", path: "/api/music", description: "E.g. Create new music artists"} 
     ]
   })
 });
