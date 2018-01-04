@@ -2,7 +2,9 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var MusicSchema = new Schema({
-  description: String
+  name: String,  
+  songName: String
+
 });
 
 var music = mongoose.model('music', MusicSchema);

@@ -12,7 +12,7 @@ app.use(bodyParser.json());
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -61,6 +61,10 @@ app.get('/api/profile', function(req,res){
     current_city: 'Denver', 
     pets:[{name: "jin", species: "humanoid"}, {name: "kevin james", species: "Wanabe"}]
   })
+})
+
+app.get('/api/music', function index(req,res){
+
 })
 
 
