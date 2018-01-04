@@ -63,8 +63,21 @@ app.get('/api/profile', function(req,res){
   })
 })
 
-app.get('/api/music', function index(req,res){
+app.get('/api/music', function(req,res){
+  db.music.find(function(err, music){
+    if (err) {
+      return console.log ("Error:", err)
+    }
+    res.json(music)
+  })
 
+})
+
+app.post('/api/music/:id', function(req,res){
+  db.music.findById(req.params.id, function(err, music){
+    if (err) {return console.log("You are fucked:", + err)}
+    res.json(music);
+  })
 })
 
 

@@ -15,11 +15,18 @@ var new_music =[
     }
 ];
 
+db.music.remove({}, function(err, music){
+    if (err) {
+        return console.log('Error:', err);
+    } else {
+        return console.log("success", music)
+    }
 db.music.create(new_music, function(err, music){
   if (err){
     return console.log("Error:", err);
   }
 
-  console.log("Created new musical sounds", music._id)
+  console.log("Created new musical", music)
   process.exit(); 
-})
+    })
+});
