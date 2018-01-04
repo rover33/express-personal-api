@@ -59,7 +59,9 @@ app.get('/api/profile', function(req,res){
     github_profile_image: "https://avatars3.githubusercontent.com/u/17019181?s=400&v=4",
     current_city: 'Denver', 
     pets:[{name: "jin", species: "humanoid"}, {name: "kevin james", species: "Wanabe"}]
-}
+  })
+})
+
 
 /**********
  * SERVER *
