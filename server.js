@@ -53,6 +53,7 @@ app.get('/api', function api_index(req, res) {
   })
 });
 
+
 app.get('/api/profile', function(req,res){
   res.json({
     name: "Remy Pearlstone",
@@ -63,6 +64,8 @@ app.get('/api/profile', function(req,res){
   })
 })
 
+
+//index
 app.get('/api/music', function(req,res){
   db.music.find(function(err, music){
     if (err) {
@@ -73,13 +76,14 @@ app.get('/api/music', function(req,res){
 
 })
 
+//show
 app.get('/api/music/:id', function(req,res){
   db.music.findById(req.params.id, function(err, music){
     if (err) {return console.log("You are fucked:", + err)}
     res.json(music);
   })
 })
-
+//create
 app.post('/api/music', function(req,res){
   var newMusic = new db.music({
     name: req.body.name,
@@ -95,6 +99,7 @@ app.post('/api/music', function(req,res){
   });
 });
 
+//update
 app.put('/api/music/:id', function(req, res){
   db.music.findOneAndUpdate({_id: req.params.id }, {$set: {name: req.body.name, songName: req.body.songName}}, {new: true}, function(err, music){
     if (err) {return console.log("You failed:", + err)}
@@ -102,6 +107,7 @@ app.put('/api/music/:id', function(req, res){
   })
 })
 
+//delete
 app.delete('/api/music/:id', function (req, res) {
   console.log(req.params)
   var musicId = req.params.id;

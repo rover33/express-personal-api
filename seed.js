@@ -15,23 +15,16 @@ var new_music =[
     }
 ];
 
-db.music.remove({}, function(err, music) {
-    console.log('removed all musicians');
-    db.music.create(new_music, function(err, music){
-      if (err) {
-        console.log(err);
-        return;
-      }
-// db.music.remove({}, function(err, music){
-//     if (err) {
-//         return console.log('Error:', err)
-//     } else {
-//         return console.log("success", music)
-//     }
-// db.music.create(new_music, function(err, music){
-//   if (err){
-//     return console.log("Error:", err);
-//   }
+db.music.remove({}, function(err, music){
+    if (err) {
+        return console.log('Error:', err)
+    } else {
+        return console.log("success", music)
+    }
+db.music.create(new_music, function(err, music){
+  if (err){
+    return console.log("Error:", err);
+  }
 
   console.log("Created new musical", music)
   process.exit(); 
